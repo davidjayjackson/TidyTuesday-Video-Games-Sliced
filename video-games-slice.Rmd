@@ -1,0 +1,35 @@
+---
+title: 'TidyTuesday: Video-Games-Sliced'
+author: "David Jackson"
+date: "3/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(tidyr)
+library(dlookr)
+```
+### Load Data from Two TT Repo
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2021-03-16')
+tt_games <- tuesdata$games
+```
+```{r}
+dlookr::diagnose_numeric(tt_games)
+
+dlookr::diagnose_category(tt_games)
+```
+```{r}
+video_games <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv")
+```
+```{r}
+dlookr::diagnose_numeric(video_games)
+
+dlookr::diagnose_category(video_games)
+```
+
